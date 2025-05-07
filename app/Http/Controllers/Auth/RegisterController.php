@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->validated('password'))    // Hash user's password
         ]);
 
+        session()->flash('status', 'Registration was successful; Login to your account.');
         return redirect()->route('login');  // Now login (redirect user to login page after registration)
     }
 }

@@ -4,6 +4,11 @@
 
 @section('content')
     <h2>Login</h2>
+
+    @if ( session()->has('status') )
+        <p class="success-message">{{ session()->get('status') }}</p>
+    @endif
+
     <form action="{{ route('login') }}" method="POST">
         @csrf
 

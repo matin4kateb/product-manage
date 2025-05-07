@@ -6,6 +6,10 @@
 <section>
     <h2>Product List</h2>
 
+    @if(session()->has('status'))
+        <p class="success-message">{{ session()->get('status') }}</p>
+    @endif
+
     <table border="1">
         <thead>
             <tr>

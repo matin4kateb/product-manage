@@ -31,6 +31,8 @@ class ProductController extends Controller
             'user_id' => Auth::id(),
             ...$addRequest->validated()
         ]);
+        
+        session()->flash('status', 'Product added successfully.');
         return redirect()->route('product.view');
     }
 
@@ -41,6 +43,8 @@ class ProductController extends Controller
 
         $product->delete();
         // alert('Product deleted successfully.');
+        
+        session()->flash('status', 'Product deleted successfully.');
         return redirect()->route('product.view');
     }
 
@@ -62,6 +66,7 @@ class ProductController extends Controller
             ...$upRequest->validated()
         ]);
         
+        session()->flash('status', 'Product updated successfully.');
         return redirect()->route('product.view');
     }
 
